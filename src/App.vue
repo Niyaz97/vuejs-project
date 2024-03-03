@@ -20,7 +20,7 @@ import { Authenticator } from "@aws-amplify/ui-vue";
           responseType: 'code',
         },
         username: true,
-        email: false,
+        email: true,
         phone: false,
       }
     }
