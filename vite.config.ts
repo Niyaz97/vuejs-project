@@ -15,10 +15,9 @@ export default defineConfig({
     vueJsx(),
   ],
   resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
-      find: './runtimeConfig',
-      replacement: './runtimeConfig.browser', // ensures browser compatible version of AWS JS SDK is used
-    }
+    alias: [
+      { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
+      { find: './runtimeConfig', replacement: './runtimeConfig.browser' }
+    ]
   }
-})
+});
