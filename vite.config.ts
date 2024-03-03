@@ -4,7 +4,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
 import Amplify from 'aws-amplify';
-import awsExports from './aws-exports'; // your generated aws-exports file
+import awsExports from './aws-exports';
 
 Amplify.configure(awsExports);
 
