@@ -3,8 +3,6 @@
 
 const awsmobile = {
     aws_project_region: "eu-north-1",
-    userPoolId: process.env.USER_POOL_ID,
-    userPoolWebClientId: process.env.USER_POOL_APP_CLIENT_ID,
 };
 
 

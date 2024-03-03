@@ -6,7 +6,27 @@ import { Authenticator } from "@aws-amplify/ui-vue";
   import { Amplify } from 'aws-amplify';
   import awsconfig from './aws-exports';
 
-  Amplify.configure(awsconfig);
+  Amplify.configure({
+  Auth: {
+    Cognito: {
+      userPoolClientId: '7q4f9d0ng3q739ogso02fl96i7',
+      userPoolId: 'eu-north-1_uMGN7jMO0',
+      loginWith: {
+        oauth: {
+          domain: 'main.auth.eu-north-1.amazoncognito.com',
+          scopes: ['openid email phone profile aws.cognito.signin.user.admin '],
+          redirectSignIn: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/about'],
+          redirectSignOut: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/'],
+          responseType: 'code',
+        },
+        username: true,
+        email: false,
+        phone: false,
+      }
+    }
+  }
+});
+
 
 </script>
 
