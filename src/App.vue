@@ -15,7 +15,7 @@ import { Authenticator } from "@aws-amplify/ui-vue";
         oauth: {
           domain: 'main.auth.eu-north-1.amazoncognito.com',
           scopes: ['openid email phone profile aws.cognito.signin.user.admin '],
-          redirectSignIn: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/about'],
+          redirectSignIn: ['http://localhost:3000/','https://i7mizte33k.execute-api.eu-north-1.amazonaws.com/prod'],
           redirectSignOut: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/'],
           responseType: 'code',
         },
