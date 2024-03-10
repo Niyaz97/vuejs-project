@@ -3,6 +3,7 @@
 
 const awsmobile = {
     aws_project_region: "eu-north-1",
+    endpoint: "https://i7mizte33k.execute-api.eu-north-1.amazonaws.com/prod",
 };
 
 
