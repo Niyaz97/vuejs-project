@@ -1,7 +1,9 @@
 <script setup lang="ts">
-  import { Amplify } from 'aws-amplify';
+import { Amplify } from 'aws-amplify'
 
-  Amplify.configure({
+import { Authenticator } from '@aws-amplify/ui-vue'
+import '@aws-amplify/ui-vue/styles.css'
+Amplify.configure({
   Auth: {
     Cognito: {
       userPoolClientId: '7q4f9d0ng3q739ogso02fl96i7',
@@ -10,22 +12,23 @@
         oauth: {
           domain: 'main.auth.eu-north-1.amazoncognito.com',
           scopes: ['openid email phone profile aws.cognito.signin.user.admin '],
-          redirectSignIn: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/login'],
-          redirectSignOut: ['http://localhost:3000/','https://main.d6px848tj0kdg.amplifyapp.com/'],
-          responseType: 'code',
+          redirectSignIn: [
+            'http://localhost:3000/',
+            'https://main.d6px848tj0kdg.amplifyapp.com/welcome'
+          ],
+          redirectSignOut: ['http://localhost:3000/', 'https://main.d6px848tj0kdg.amplifyapp.com/'],
+          responseType: 'code'
         },
         username: true,
         email: true,
-        phone: false,
+        phone: false
       }
     }
   }
-});
-
-
+})
 </script>
 
-<template>
+<!-- <template>
   <header>
     <div class="wrapper">
       <nav>
@@ -36,7 +39,49 @@
       </nav>
     </div>
   </header>
-
+</template> -->
+<template>
+  <header>
+    <authenticator>
+      <template v-slot:sign-up-header>
+        <h3
+          class="amplify-heading"
+          style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+        >
+          Create a new account
+        </h3>
+      </template>
+      <template v-slot:header>
+        <div style="padding: var(--amplify-space-large); text-align: center">
+          <img
+            class="amplify-image"
+            alt="Amplify logo"
+            src="https://docs.amplify.aws/assets/logo-dark.svg"
+          />
+        </div>
+      </template>
+      <template v-slot:sign-in-header>
+        <h3
+          class="amplify-heading"
+          style="padding: var(--amplify-space-xl) 0 0 var(--amplify-space-xl)"
+        >
+          Sign in to your account
+        </h3>
+      </template>
+      <template v-slot="{ user, signOut }">
+        <!-- {{ user }} -->
+        <h1>Hello {{ user.username }}!</h1>
+        <button @click="signOut" variation="primary">Sign Out</button>
+      </template>
+      <template v-slot:footer>
+        <div style="padding: var(--amplify-space-large); text-align: center">
+          <p class="amplify-text" style="color: var(--amplify-colors-neutral-80)">
+            © All Rights Reserved
+          </p>
+        </div>
+      </template>
+    </authenticator>
+  </header>
 </template>
 
 <style scoped>

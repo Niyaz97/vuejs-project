@@ -1,17 +1,8 @@
-<template>
-  <div>
-    <input v-model="username" placeholder="Username">
-    <input v-model="password" placeholder="Password">
-    <button @click="login">Login</button>
-  </div>
-</template>
-
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent } from 'vue'
-import { Authenticator } from "@aws-amplify/ui-vue";
+import { Authenticator } from '@aws-amplify/ui-vue'
 import { useRouter } from 'vue-router'
-import "@aws-amplify/ui-vue/styles.css";
-
+import '@aws-amplify/ui-vue/styles.css'
 
 export default defineComponent({
   data() {
@@ -32,4 +23,4 @@ export default defineComponent({
     }
   }
 })
-</script>
+</script> -->
